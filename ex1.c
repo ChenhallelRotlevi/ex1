@@ -1,7 +1,7 @@
 /******************
-Name:
-ID:
-Assignment:
+Name:Chen Rotlevi
+ID:217548916
+Assignment:ex1
 *******************/
 #include <stdio.h>
 
@@ -13,7 +13,13 @@ int main() {
   printf("What bit:\n");
   /*Scan two integers (representing number and a position)
   Print the bit in this position. */
-  
+  int num,pos; //num is the number and pos is the position
+  printf("please enter a number");
+  scanf("%d",&num);
+  printf("please enter a position");
+  scanf("%d",&pos);
+  int bit = (num >> pos) & 1;
+  printf(""The bit at position %d is: %d\n", pos, bit);
   // Set bit
   printf("\nSet bit:\n");
   /*Scan two integers (representing number and a position)

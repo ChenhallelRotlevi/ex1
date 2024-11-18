@@ -13,17 +13,25 @@ int main() {
   printf("What bit:\n");
   /*Scan two integers (representing number and a position)
   Print the bit in this position. */
-  int num,pos; //num is the number and pos is the position
   printf("please enter a number");
   scanf("%d",&num);
   printf("please enter a position");
   scanf("%d",&pos);
   int bit = (num >> pos) & 1;
-  printf(""The bit at position %d is: %d\n", pos, bit);
+  printf("The bit at position %d is: %d\n", pos, bit);
   // Set bit
   printf("\nSet bit:\n");
-  /*Scan two integers (representing number and a position)
-  Make sure the bit in this position is "on" (equal to 1)
+  printf("please enter a number");
+  scanf("%d",&num);
+  printf("please enter a position");
+  scanf("%d",&pos);
+  int bit_on = num | (1 << pos);    // using operator OR on the byte with 1 in the position 
+  int bit_off = num & ~(1 << pos);  // using operator AND on the byte with 0 on that position with 1s on the other 
+
+        // Print the results
+  printf("Number with bit %d 'on': %d\n", pos, bit_on);
+  printf("Number with bit %d 'off': %d\n", pos, bit_off);
+
   Print the output
   Now make sure it's "off" (equal to 0)
   Print the output */

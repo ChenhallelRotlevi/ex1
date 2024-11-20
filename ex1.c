@@ -7,53 +7,58 @@ Assignment:ex1
 
 // REMIDER : YOU CANT USE ANY CONTROL FLOW OPERATIONS OR FUNCTIONS, ONLY BITWISE.
 
-int main() {
-  
-  // What bit
-  printf("What bit:\n");
-  /*Scan two integers (representing number and a position)
-  Print the bit in this position. */
-  printf("please enter a number");
-  scanf("%d",&num);
-  printf("please enter a position");
-  scanf("%d",&pos);
-  int bit = (num >> pos) & 1;
-  printf("The bit at position %d is: %d\n", pos, bit);
-  // Set bit
-  printf("\nSet bit:\n");
-  printf("please enter a number");
-  scanf("%d",&num);
-  printf("please enter a position");
-  scanf("%d",&pos);
-  int bit_on = num | (1 << pos);    // using operator OR on the byte with 1 in the position 
-  int bit_off = num & ~(1 << pos);  // using operator AND on the byte with 0 on that position with 1s on the other 
+int main()
+{
+    int num, pos; // Declare variables to hold a number and a bit position
 
-        // Print the results
-  printf("Number with bit %d 'on': %d\n", pos, bit_on);
-  printf("Number with bit %d 'off': %d\n", pos, bit_off);
+    // Check the value of a bit at a specific position
+    printf("What bit:\n");
+    // Prompt the user for a number
+    printf("Please enter a number\n");
+    scanf("%d", &num);
+    // Prompt the user for a position
+    printf("Please enter a position\n");
+    scanf("%d", &pos);
 
-  Print the output
-  Now make sure it's "off" (equal to 0)
-  Print the output */
+    // Right-shift the number `pos` times and check if the least significant bit (LSB) is 1
+    int bit = (num >> pos) & 1;
+    printf("The bit at position %d is: %d\n", pos, bit);
 
-  // Toggle bit
-  printf("\nToggle bit:\n");
-  /*Scan two integers (representing number and a position)
-  Toggle the bit in this position
-  Print the new number */
-  
-  // Even - Odd
-  printf("\nEven - Odd:\n");
-  /* Scan an integer
-  If the number is even - print 1, else - print 0. */
-  
-  // 3, 5, 7, 11
-  printf("\n3, 5, 7, 11:\n");
-  /* Scan two integers in octal base
-  sum them up and print the result in hexadecimal base
-  Print only 4 bits, in positions: 3,5,7,11 in the result. */
+    // Set a bit (make it 1) at a specific position
+    printf("Set bit:\n");
+    printf("Please enter a number\n");
+    scanf("%d", &num);
+    printf("Please enter a position\n");
+    scanf("%d", &pos);
 
-  printf("Bye!\n");
-  
-  return 0;
+    // Use bitwise OR to set the bit at position `pos` to 1
+    int bit_on = num | (1 << pos);
+    // Use bitwise AND with a negated mask to clear the bit at position `pos`
+    int bit_off = num & ~(1 << pos);
+
+    // Print the results
+    printf("Number with bit %d 'on': %d\n", pos, bit_on);
+    printf("Number with bit %d 'off': %d\n", pos, bit_off);
+
+    // Toggle a bit (invert its value)
+    printf("Toggle bit:\n");
+    printf("Please enter a number\n");
+    scanf("%d", &num);
+    printf("Please enter a position\n");
+    scanf("%d", &pos);
+
+    // Use bitwise XOR to toggle the bit at position `pos`
+    int bit_toggle = num ^ (1 << pos);
+    printf("Number with bit %d toggled: %d\n", pos, bit_toggle);
+
+    // Check if the number is odd or even
+    printf("Odd or even:\n");
+    printf("Please enter a number\n");
+    scanf("%d", &num);
+
+    // Check if the least significant bit (LSB) is 1 (even) or 0 (odd)
+    int odd_even = (num & 1) ^ 1;
+    printf("%d\n", odd_even);
+
+    return 0;
 }
